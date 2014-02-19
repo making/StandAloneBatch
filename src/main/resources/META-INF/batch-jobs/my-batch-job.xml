@@ -1,0 +1,15 @@
+<job id="my-batch-job"
+     xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
+    <properties>
+        <property name="input_file" value="/tmp/input.txt"/>
+        <property name="output_file" value="/tmp/output.txt"/>
+    </properties>
+
+    <step id="first-step">
+        <chunk item-count="5">
+            <reader ref="com.yoshio3.chunks.MyItemReader"/>
+            <processor ref="com.yoshio3.chunks.MyItemProcessor"/>
+            <writer ref="com.yoshio3.chunks.MyItemWriter"/>
+        </chunk>
+    </step>
+</job>
